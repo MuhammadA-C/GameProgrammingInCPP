@@ -13,7 +13,19 @@ Game::Game() {
 bool Game::Initialize() {
     int sdlResult = SDL_Init(SDL_INIT_VIDEO);
     if (sdlResult != 0) {
-        SDL_Log("Unable to initialize SLD: %s", SDL_GetError());
+        SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
+        return false;
+    }
+
+    const char WINDOW_TITLE[] = "Game Programming in C++ (Chapter 1)";
+    const int TOP_LEFT_X_COORDINATE_OF_WINDOW = 100;
+    const int TOP_LEFT_Y_COORDINATE_OF_WINDOW = 100;
+    const int WIDTH_OF_WINDOW = 1024;
+    const int HEIGHT_OF_WINDOW = 768;
+    mWindow = SDL_CreateShapedWindow(WINDOW_TITLE, TOP_LEFT_X_COORDINATE_OF_WINDOW,TOP_LEFT_Y_COORDINATE_OF_WINDOW,
+                                     WIDTH_OF_WINDOW, HEIGHT_OF_WINDOW, 0);
+    if (!mWindow) {
+        SDL_Log("Failed to create window: %s", SDL_GetError());
         return false;
     }
 
