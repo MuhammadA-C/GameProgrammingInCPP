@@ -2,8 +2,7 @@
 // Created by muhammad chambers on 11/13/24.
 //
 
-#ifndef CHAPTER1_GAME_H
-#define CHAPTER1_GAME_H
+#pragma once
 
 #include <SDL.h>
 
@@ -40,6 +39,3 @@ private:
     /** Game should continue to run. */
     bool mIsRunning;
 };
-
-
-#endif //CHAPTER1_GAME_H
