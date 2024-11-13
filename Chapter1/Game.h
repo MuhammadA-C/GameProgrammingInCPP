@@ -34,6 +34,7 @@ private:
     void UpdateGame();
     void GenerateOutput();
 
+    SDL_Renderer* mRenderer;
     /** Window created by SDL. */
     SDL_Window* mWindow;
     /** Game should continue to run. */
