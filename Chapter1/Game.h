@@ -7,6 +7,11 @@
 #include <SDL.h>
 
 
+struct Vector2 {
+    float x;
+    float y;
+};
+
 /**
  *
  */
@@ -39,4 +44,6 @@ private:
     SDL_Window* mWindow;
     /** Game should continue to run. */
     bool mIsRunning;
+    Vector2 mPaddlePosition;
+    Vector2 mBallPosition;
 };
