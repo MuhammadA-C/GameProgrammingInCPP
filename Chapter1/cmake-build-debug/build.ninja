@@ -49,8 +49,8 @@ cmake_ninja_workdir = /Users/muhammadchambers/Real-Desktop/GameProgrammingInCPP/
 
 build cmake_object_order_depends_target_Chapter1: phony || .
 
-build CMakeFiles/Chapter1.dir/main.cpp.o: CXX_COMPILER__Chapter1_unscanned_Debug /Users/muhammadchambers/Real-Desktop/GameProgrammingInCPP/Chapter1/main.cpp || cmake_object_order_depends_target_Chapter1
-  DEP_FILE = CMakeFiles/Chapter1.dir/main.cpp.o.d
+build CMakeFiles/Chapter1.dir/Main.cpp.o: CXX_COMPILER__Chapter1_unscanned_Debug /Users/muhammadchambers/Real-Desktop/GameProgrammingInCPP/Chapter1/Main.cpp || cmake_object_order_depends_target_Chapter1
+  DEP_FILE = CMakeFiles/Chapter1.dir/Main.cpp.o.d
   FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
   INCLUDES = -I/opt/homebrew/opt/sdl2/include/SDL2
   OBJECT_DIR = CMakeFiles/Chapter1.dir
@@ -71,7 +71,7 @@ build CMakeFiles/Chapter1.dir/Game.cpp.o: CXX_COMPILER__Chapter1_unscanned_Debug
 #############################################
 # Link the executable Chapter1
 
-build Chapter1: CXX_EXECUTABLE_LINKER__Chapter1_Debug CMakeFiles/Chapter1.dir/main.cpp.o CMakeFiles/Chapter1.dir/Game.cpp.o | /opt/homebrew/opt/sdl2/lib/libSDL2.dylib
+build Chapter1: CXX_EXECUTABLE_LINKER__Chapter1_Debug CMakeFiles/Chapter1.dir/Main.cpp.o CMakeFiles/Chapter1.dir/Game.cpp.o | /opt/homebrew/opt/sdl2/lib/libSDL2.dylib
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk
   LINK_LIBRARIES = /opt/homebrew/opt/sdl2/lib/libSDL2.dylib
   OBJECT_DIR = CMakeFiles/Chapter1.dir

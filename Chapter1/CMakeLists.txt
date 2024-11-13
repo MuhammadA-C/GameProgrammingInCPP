@@ -10,7 +10,7 @@ set(SDL2_LIBRARY /opt/homebrew/opt/sdl2/lib/libSDL2.dylib)
 # Include SDL2 headers
 include_directories(${SDL2_INCLUDE_DIR})
 
-add_executable(Chapter1 main.cpp
+add_executable(Chapter1 Main.cpp
         Game.cpp
         Game.h)
 

@@ -36,3 +36,23 @@ void Game::Shutdown() {
     SDL_DestroyWindow(mWindow);
     SDL_Quit();
 }
+
+void Game::RunLoop() {
+    while (mIsRunning) {
+        ProcessInput();
+        UpdateGame();
+        GenerateOutput();
+    }
+}
+
+void Game::ProcessInput() {
+
+}
+
+void Game::UpdateGame() {
+
+}
+
+void Game::GenerateOutput() {
+    
+}
