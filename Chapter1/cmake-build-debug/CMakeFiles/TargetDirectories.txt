@@ -1,0 +1,3 @@
+/Users/muhammadchambers/Real-Desktop/GameProgrammingInCPP/Chapter1/cmake-build-debug/CMakeFiles/Chapter1.dir
+/Users/muhammadchambers/Real-Desktop/GameProgrammingInCPP/Chapter1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/muhammadchambers/Real-Desktop/GameProgrammingInCPP/Chapter1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
