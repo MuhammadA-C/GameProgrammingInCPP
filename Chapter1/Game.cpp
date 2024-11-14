@@ -10,11 +10,12 @@ const float PADDLE_HEIGHT = 100.0f;
 
 
 Game::Game()
-: mWindow(nullptr), mRenderer(nullptr), mIsRunning(true), mTicksCount(0) {
+: mWindow(nullptr), mRenderer(nullptr), mIsRunning(true), mTicksCount(0), mPaddleDirection(0) {
 
 }
 
 bool Game::Initialize() {
+    // Initialize SDL
     int sdlResult = SDL_Init(SDL_INIT_VIDEO);
     if (sdlResult != 0) {
         SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
@@ -78,10 +79,20 @@ void Game::ProcessInput() {
         if (state[SDL_SCANCODE_ESCAPE]) {
             mIsRunning = false;
         }
+
+        // Update paddle direction based on W/S keys
+        mPaddleDirection = 0;
+        if (state[SDL_SCANCODE_W]) {
+            mPaddleDirection -= 1;
+        }
+        if (state[SDL_SCANCODE_S]) {
+            mPaddleDirection += 1;
+        }
     }
 }
 
 void Game::UpdateGame() {
+    // Wait until 16ms has elapsed since last frame
     while (!SDL_TICKS_PASSED(SDL_GetTicks(), mTicksCount + 16))
         ;
 
@@ -97,20 +108,28 @@ void Game::UpdateGame() {
     // Update tick counts (for next frame)
     mTicksCount = SDL_GetTicks();
 
-    // TODO: Update objects in game world as function of delta time!
-    // ...
+    // Update paddle position based on direction
+    if (mPaddleDirection != 0) {
+        mPaddlePosition.y += mPaddleDirection * 300.0f * deltaTime;
+
+        // Make sure paddle doesn't move off-screen
+        if (mPaddlePosition.y < (PADDLE_HEIGHT / 2.0f + THICKNESS)){
+            mPaddlePosition.y = PADDLE_HEIGHT / 2.0f + THICKNESS;
+        } else if (mPaddlePosition.y > (768.0f - PADDLE_HEIGHT / 2.0f - THICKNESS)) {
+            mPaddlePosition.y = 768.0f - PADDLE_HEIGHT / 2.0f - THICKNESS;
+        }
+    }
 
 }
 
 void Game::GenerateOutput() {
-
     // Set draw color to blue
     SDL_SetRenderDrawColor(mRenderer, 0, 0, 255, 255);
 
     // Clear back buffer
     SDL_RenderClear(mRenderer);
 
-
+    // Draw walls
     SDL_SetRenderDrawColor(mRenderer, 255, 255, 255, 255);
 
     // Draw top wall
@@ -134,8 +153,8 @@ void Game::GenerateOutput() {
 
     // Draw paddle
     SDL_Rect paddle {
-            static_cast<int>(mBallPosition.x),
-            static_cast<int>(mBallPosition.y - PADDLE_HEIGHT / 2),
+            static_cast<int>(mPaddlePosition.x),
+            static_cast<int>(mPaddlePosition.y - PADDLE_HEIGHT / 2),
             THICKNESS,
             static_cast<int>(PADDLE_HEIGHT)
     };

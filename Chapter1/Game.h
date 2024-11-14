@@ -44,7 +44,13 @@ private:
     SDL_Window* mWindow;
     /** Game should continue to run. */
     bool mIsRunning;
-    Vector2 mPaddlePosition;
-    Vector2 mBallPosition;
+    /** Number of ticks since start of game. */
     Uint32 mTicksCount;
+
+    /** Direction of paddle. */
+    int mPaddleDirection;
+    /** Position of paddle. */
+    Vector2 mPaddlePosition;
+    /** Position of ball. */
+    Vector2 mBallPosition;
 };
