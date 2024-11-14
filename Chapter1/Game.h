@@ -46,4 +46,5 @@ private:
     bool mIsRunning;
     Vector2 mPaddlePosition;
     Vector2 mBallPosition;
+    Uint32 mTicksCount;
 };

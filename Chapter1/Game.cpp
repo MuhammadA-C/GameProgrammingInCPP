@@ -10,7 +10,7 @@ const float PADDLE_HEIGHT = 100.0f;
 
 
 Game::Game()
-: mWindow(nullptr), mRenderer(nullptr), mIsRunning(true) {
+: mWindow(nullptr), mRenderer(nullptr), mIsRunning(true), mTicksCount(0) {
 
 }
 
@@ -82,6 +82,23 @@ void Game::ProcessInput() {
 }
 
 void Game::UpdateGame() {
+    while (!SDL_TICKS_PASSED(SDL_GetTicks(), mTicksCount + 16))
+        ;
+
+    // Delta time is the difference in ticks from last frame
+    // (converted to seconds)
+    float deltaTime = (SDL_GetTicks() - mTicksCount) / 1000.0f;
+
+    // Clamp maximum delta time value
+    if (deltaTime > 0.05f) {
+        deltaTime = 0.05f;
+    }
+
+    // Update tick counts (for next frame)
+    mTicksCount = SDL_GetTicks();
+
+    // TODO: Update objects in game world as function of delta time!
+    // ...
 
 }
 
