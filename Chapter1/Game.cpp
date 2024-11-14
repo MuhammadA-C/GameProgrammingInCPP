@@ -44,6 +44,8 @@ bool Game::Initialize() {
     mPaddlePosition.y = 768.0f / 2.0f;
     mBallPosition.x = 1024.0f / 2.0f;
     mBallPosition.y = 768.0f / 2.0f;
+    mBallVelocity.x = -200.0f;
+    mBallVelocity.y = 235.0f;
 
     return true;
 }
@@ -119,6 +121,10 @@ void Game::UpdateGame() {
             mPaddlePosition.y = 768.0f - PADDLE_HEIGHT / 2.0f - THICKNESS;
         }
     }
+
+    // Update ball position based on ball velocity
+    mBallPosition.x += mBallVelocity.x * deltaTime;
+    mBallPosition.y += mBallVelocity.y * deltaTime;
 
 }
 
