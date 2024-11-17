@@ -204,7 +204,7 @@ void Game::GenerateOutput() {
         THICKNESS
     };
     SDL_RenderFillRect(mRenderer, &ball);
-    
+
     // Swap front buffer and back buffer
     SDL_RenderPresent(mRenderer);
 }
