@@ -126,6 +126,36 @@ void Game::UpdateGame() {
     mBallPosition.x += mBallVelocity.x * deltaTime;
     mBallPosition.y += mBallVelocity.y * deltaTime;
 
+    // Bounce if needed
+    // Did we interest with the paddle
+    float difference = mPaddlePosition.y - mBallPosition.y;
+    difference = (difference > 0.0f) ? difference : -difference;
+    if (
+            // Our y-difference is small enough
+            difference <= PADDLE_HEIGHT / 2.0f &&
+            // We are in the correct x-position
+            mBallPosition.x <= 25.0f && mBallPosition.x >= 20.0f &&
+            // The ball is moving to the left
+            mBallVelocity.x < 0.0f) {
+        mBallVelocity.x *= -1.0f;
+    }
+    // Did the ball go off the screen? (if so, end game)
+    else if (mBallPosition.x <= 0.0f) {
+        mIsRunning = false;
+    }
+    // Did the ball collide with the right wall
+    else if (mBallPosition.x >= (1024.0f - THICKNESS) && mBallVelocity.x > 0.0f) {
+        mBallVelocity.x *= 1.0f;
+    }
+
+    // Did the ball collide with the top wall
+    if (mBallPosition.y <= THICKNESS && mBallVelocity.y < 0.0f) {
+        mBallVelocity.y *= -1;
+    }
+    // Did the ball collide with the bottom wall
+    else if (mBallPosition.y >= (768 - THICKNESS) && mBallVelocity.y > 0.0f) {
+        mBallVelocity.y *= -1;
+    }
 }
 
 void Game::GenerateOutput() {
@@ -174,8 +204,7 @@ void Game::GenerateOutput() {
         THICKNESS
     };
     SDL_RenderFillRect(mRenderer, &ball);
-
-
+    
     // Swap front buffer and back buffer
     SDL_RenderPresent(mRenderer);
 }
