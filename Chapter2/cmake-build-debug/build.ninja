@@ -52,18 +52,35 @@ build cmake_object_order_depends_target_Chapter2: phony || .
 build CMakeFiles/Chapter2.dir/main.cpp.o: CXX_COMPILER__Chapter2_unscanned_Debug /Users/muhammadchambers/Real-Desktop/GameProgrammingInCPP/Chapter2/main.cpp || cmake_object_order_depends_target_Chapter2
   DEP_FILE = CMakeFiles/Chapter2.dir/main.cpp.o.d
   FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  INCLUDES = -I/opt/homebrew/opt/sdl2/include/SDL2
   OBJECT_DIR = CMakeFiles/Chapter2.dir
   OBJECT_FILE_DIR = CMakeFiles/Chapter2.dir
 
 build CMakeFiles/Chapter2.dir/Actor.cpp.o: CXX_COMPILER__Chapter2_unscanned_Debug /Users/muhammadchambers/Real-Desktop/GameProgrammingInCPP/Chapter2/Actor.cpp || cmake_object_order_depends_target_Chapter2
   DEP_FILE = CMakeFiles/Chapter2.dir/Actor.cpp.o.d
   FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  INCLUDES = -I/opt/homebrew/opt/sdl2/include/SDL2
   OBJECT_DIR = CMakeFiles/Chapter2.dir
   OBJECT_FILE_DIR = CMakeFiles/Chapter2.dir
 
 build CMakeFiles/Chapter2.dir/Component.cpp.o: CXX_COMPILER__Chapter2_unscanned_Debug /Users/muhammadchambers/Real-Desktop/GameProgrammingInCPP/Chapter2/Component.cpp || cmake_object_order_depends_target_Chapter2
   DEP_FILE = CMakeFiles/Chapter2.dir/Component.cpp.o.d
   FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  INCLUDES = -I/opt/homebrew/opt/sdl2/include/SDL2
+  OBJECT_DIR = CMakeFiles/Chapter2.dir
+  OBJECT_FILE_DIR = CMakeFiles/Chapter2.dir
+
+build CMakeFiles/Chapter2.dir/Game.cpp.o: CXX_COMPILER__Chapter2_unscanned_Debug /Users/muhammadchambers/Real-Desktop/GameProgrammingInCPP/Chapter2/Game.cpp || cmake_object_order_depends_target_Chapter2
+  DEP_FILE = CMakeFiles/Chapter2.dir/Game.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  INCLUDES = -I/opt/homebrew/opt/sdl2/include/SDL2
+  OBJECT_DIR = CMakeFiles/Chapter2.dir
+  OBJECT_FILE_DIR = CMakeFiles/Chapter2.dir
+
+build CMakeFiles/Chapter2.dir/Math.cpp.o: CXX_COMPILER__Chapter2_unscanned_Debug /Users/muhammadchambers/Real-Desktop/GameProgrammingInCPP/Chapter2/Math.cpp || cmake_object_order_depends_target_Chapter2
+  DEP_FILE = CMakeFiles/Chapter2.dir/Math.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  INCLUDES = -I/opt/homebrew/opt/sdl2/include/SDL2
   OBJECT_DIR = CMakeFiles/Chapter2.dir
   OBJECT_FILE_DIR = CMakeFiles/Chapter2.dir
 
@@ -75,8 +92,9 @@ build CMakeFiles/Chapter2.dir/Component.cpp.o: CXX_COMPILER__Chapter2_unscanned_
 #############################################
 # Link the executable Chapter2
 
-build Chapter2: CXX_EXECUTABLE_LINKER__Chapter2_Debug CMakeFiles/Chapter2.dir/main.cpp.o CMakeFiles/Chapter2.dir/Actor.cpp.o CMakeFiles/Chapter2.dir/Component.cpp.o
+build Chapter2: CXX_EXECUTABLE_LINKER__Chapter2_Debug CMakeFiles/Chapter2.dir/main.cpp.o CMakeFiles/Chapter2.dir/Actor.cpp.o CMakeFiles/Chapter2.dir/Component.cpp.o CMakeFiles/Chapter2.dir/Game.cpp.o CMakeFiles/Chapter2.dir/Math.cpp.o | /opt/homebrew/opt/sdl2/lib/libSDL2.dylib
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk
+  LINK_LIBRARIES = /opt/homebrew/opt/sdl2/lib/libSDL2.dylib
   OBJECT_DIR = CMakeFiles/Chapter2.dir
   POST_BUILD = :
   PRE_LINK = :

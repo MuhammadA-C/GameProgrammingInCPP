@@ -11,7 +11,7 @@ public:
     Component(class Actor* owner, int updateOrder = 100);
     /** Destructor. */
     virtual ~Component();
-    
+
     /** Update this component by delta time. */
     virtual void Update(float deltaTime);
     int GetUpdateOrder() const { return mUpdateOrder; }
