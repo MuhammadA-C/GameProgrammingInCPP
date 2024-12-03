@@ -33,6 +33,9 @@ public:
     //
     //
 
+    State GetState() const { return mState; }
+    void SetState(State state) { mState = state; }
+
     /** Add components. */
     void AddComponent(class Component* component);
     /** Remove components. */
